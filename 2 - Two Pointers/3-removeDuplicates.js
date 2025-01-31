@@ -12,16 +12,16 @@ const arrays = [
   [2, 2, 2, 11],
 ];
 
-function removeDuplicates(array) {
-  const frequencyMap = {};
+// function removeDuplicates(array) {
+//   const frequencyMap = {};
 
-  for (const element of array) {
-    if (!(element in frequencyMap)) frequencyMap[element] = 0;
-    frequencyMap[element] += 1;
-  }
+//   for (const element of array) {
+//     if (!(element in frequencyMap)) frequencyMap[element] = 0;
+//     frequencyMap[element] += 1;
+//   }
 
-  return Object.keys(frequencyMap).length;
-}
+//   return Object.keys(frequencyMap).length;
+// }
 
 // for (let index = 0; index < arrays.length; index++) {
 //   console.log(
@@ -51,13 +51,13 @@ function removeDuplicates(array) {
   return nonDuplicatePointer;
 }
 
-// for (let index = 0; index < arrays.length; index++) {
-//   console.log(
-//     `Length of array after removing the duplicates of [${
-//       arrays[index]
-//     }] is: ${removeDuplicates(arrays[index])}`
-//   );
-// }
+for (let index = 0; index < arrays.length; index++) {
+  console.log(
+    `Length of array after removing the duplicates of [${
+      arrays[index]
+    }] is: ${removeDuplicates(arrays[index])}`
+  );
+}
 
 /**
  * Similar Questions
@@ -98,5 +98,5 @@ for (let index = 0; index < arraysP1.length; index++) {
 }
 
 /**
- * NOTE::: In problems like removing duplicates the core foucs should be the unique elements not the duplicatess :p
+ * NOTE::: In problems like removing duplicates the core focus should be the unique elements not the duplicates :p
  */

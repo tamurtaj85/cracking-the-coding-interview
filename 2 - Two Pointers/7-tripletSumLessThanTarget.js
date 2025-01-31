@@ -11,13 +11,13 @@ const arrays = [
 ];
 const targets = [3, 5];
 
-function countTripplets(array, target) {
-  let trippletsCount = 0;
+function countTriplets(array, target) {
+  let tripletsCount = 0;
 
   array.sort((a, b) => a - b);
   const arrLength = array.length;
 
-  for (let index = 0; index < arrLength; index++) {
+  for (let index = 0; index < arrLength - 2; index++) {
     const element = array[index];
 
     let lPointer = index + 1,
@@ -29,18 +29,18 @@ function countTripplets(array, target) {
       const sum = array[lPointer] + array[rPointer];
 
       if (sum < targetSum) {
-        trippletsCount += rPointer - lPointer;
+        tripletsCount += rPointer - lPointer;
         lPointer++;
       } else rPointer--;
     }
   }
 
-  return trippletsCount;
+  return tripletsCount;
 }
 
 for (let index = 0; index < arrays.length; index++) {
   console.log(
-    `Array tripplet whose sum is less than target ${targets[index]} of [${arrays[index]}] are: `,
-    countTripplets(arrays[index], targets[index])
+    `Array triplet whose sum is less than target ${targets[index]} of [${arrays[index]}] are: `,
+    countTriplets(arrays[index], targets[index])
   );
 }

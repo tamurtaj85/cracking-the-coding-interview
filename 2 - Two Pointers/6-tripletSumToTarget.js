@@ -13,12 +13,13 @@ const arrays = [
 
 const targets = [2, 1, 100];
 
-function trippletsCloseToTarget(array, target) {
+function tripletsCloseToTarget(array, target) {
   let smallestDiff = Infinity;
   array.sort((a, b) => a - b);
   const arrLength = array.length;
 
-  for (let index = 0; index < arrLength; index++) {
+  // reason why we are doing length -2 is that at any point lPtr and rPtr will be at the end or already taking the 2 indexes spaces to avoid out of bounds array access we do length -2
+  for (let index = 0; index < arrLength - 2; index++) {
     const element = array[index];
     let lPointer = index + 1,
       rPointer = arrLength - 1;
@@ -45,7 +46,7 @@ function trippletsCloseToTarget(array, target) {
 
 for (let index = 0; index < arrays.length; index++) {
   console.log(
-    `Array tripplet whose sum is equal to target ${targets[index]} of [${arrays[index]}] is: `,
-    trippletsCloseToTarget(arrays[index], targets[index])
+    `Array triplet whose sum is equal to target ${targets[index]} of [${arrays[index]}] is: `,
+    tripletsCloseToTarget(arrays[index], targets[index])
   );
 }

@@ -16,21 +16,21 @@ const targets = [30, 50];
 
 function subArraysWithSumLessThanTarget(array, target) {
   let product = 1,
-    windowStart = 0;
+    lPointer = 0;
 
   const subArrays = [];
 
-  for (let windowIndex = 0; windowIndex < array.length; windowIndex++) {
-    product *= array[windowIndex];
+  for (let rPointer = 0; rPointer < array.length; rPointer++) {
+    product *= array[rPointer];
 
-    while (product >= target && windowStart < array.length) {
-      product /= array[windowStart];
-      windowStart++;
+    while (product >= target && lPointer < array.length) {
+      product /= array[lPointer];
+      lPointer++;
     }
 
     // const tempArr = new Deque();
     const tempArr = [];
-    for (let index = windowIndex; index > windowStart - 1; index--) {
+    for (let index = rPointer; index > lPointer - 1; index--) {
       // tempArr.unshift(array[index]);
       tempArr.unshift(array[index]);
 

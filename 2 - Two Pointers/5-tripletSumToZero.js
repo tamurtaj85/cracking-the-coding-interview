@@ -10,8 +10,9 @@ const arrays = [
   [-5, 2, -1, -2, 3],
 ];
 
-function extractTripplets(array) {
-  const tripplets = [];
+function extractTriplets(array) {
+  const triplets = [];
+
   array.sort((a, b) => a - b);
 
   let rPointer = array.length - 1;
@@ -19,20 +20,21 @@ function extractTripplets(array) {
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
 
-    // if (index > 0 && element === array[index - 1]) continue;
+    // doing this to avoid duplicate triplets, and it will only take effect when array sorted
+    if (index > 0 && element === array[index - 1]) continue;
 
-    searchPair(array, -element, index + 1, rPointer, tripplets);
+    searchPair(array, -element, index + 1, rPointer, triplets);
   }
 
-  return tripplets;
+  return triplets;
 }
 
-function searchPair(array, targetSum, lPointer, rPointer, tripplets) {
+function searchPair(array, targetSum, lPointer, rPointer, triplets) {
   while (lPointer <= rPointer) {
     const sum = array[lPointer] + array[rPointer];
 
     if (sum === targetSum) {
-      tripplets.push([-targetSum, array[lPointer], array[rPointer]]);
+      triplets.push([-targetSum, array[lPointer], array[rPointer]]);
       rPointer--, lPointer++;
     } else if (sum > targetSum) rPointer--;
     else lPointer++;
@@ -41,7 +43,7 @@ function searchPair(array, targetSum, lPointer, rPointer, tripplets) {
 
 for (let index = 0; index < arrays.length; index++) {
   console.log(
-    `Tripplets whose sum is equal to zero of [${arrays[index]}] are: `,
-    extractTripplets(arrays[index])
+    `Triplets whose sum is equal to zero of [${arrays[index]}] are: `,
+    extractTriplets(arrays[index])
   );
 }

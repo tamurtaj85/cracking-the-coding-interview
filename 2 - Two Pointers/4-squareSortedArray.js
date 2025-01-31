@@ -10,7 +10,7 @@ const arrays = [
   [-3, -1, 0, 1, 2],
 ];
 
-function calulateSquaresAndSort(array) {
+function calculateSquaresAndSort(array) {
   const arrLength = array.length;
   const squareArray = Array(arrLength).fill(0);
 
@@ -38,7 +38,7 @@ function calulateSquaresAndSort(array) {
 
 for (let index = 0; index < arrays.length; index++) {
   console.log(
-    `Sorted square array of [${arrays[index]}] is: [${calulateSquaresAndSort(
+    `Sorted square array of [${arrays[index]}] is: [${calculateSquaresAndSort(
       arrays[index]
     )}]`
   );
