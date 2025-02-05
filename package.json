@@ -4,6 +4,6 @@
     "collections": "^5.1.13"
   },
   "devDependencies": {
-    "@types/collections": "^5.1.2"
+    "@types/collections": "^5.1.5"
   }
 }
